@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 namespace BiblioSysteme
 {
     /// <summary>
-    /// Calcule le checksomme d'un header selon l'algorithme Internet Checksomme (RFC 1071).
+    /// Calcule le checksomme d'un header selon l'algorithme Internet Checksomme (RFC 1071 - vu en cours).
     /// </summary>
-    public static class CalculChecksomme
+    public static class CalculChecksum
     {
         ///<summary>
-        ///Calcule le checksomme d'un tableau d'octets.
+        ///Calcule le checksum d'un tableau d'octets.
         ///</summary>
         ///<param name="data">Tableau d'octets à traiter.</param>"
         ///<returns>Checksomme calculé (16 bits)</returns>
         ///<exception cref="ArgumentNullException">Si les données sont nulles</exception>
-        public static ushort CalculateChecksomme(byte[] data)
+        public static ushort CalculateChecksum(byte[] data)
         {
             // Vérifier si les données sont nulles ou vides
             if (data == null)
@@ -90,7 +90,7 @@ namespace BiblioSysteme
             dataSansChecksum[checksumPosition + 1] = 0;
 
             // Calculer le checksum
-            return CalculateChecksomme(dataSansChecksum);
+            return CalculateChecksum(dataSansChecksum);
         }
 
         ///<summary>
